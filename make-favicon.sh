@@ -1,0 +1,1 @@
+convert -resize x16 -gravity center -crop 16x16+0+0 public/branding/logo.png -colors 256 -background transparent public/branding/favicon.ico

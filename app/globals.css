@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  scroll-behavior: smooth !important;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 200;
+}
+
+/* TYPOGRAPHY */
+h1 {
+  font-weight: 200 !important;
+  font-size: 6rem;
+}
+
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 4rem;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transform: none;
+}
+
+/* It makes the HTML progress bar filling smooth when value change. */
+progress::-webkit-progress-value {
+  transition: 0.6s width ease-out;
+}
+
+@layer base {
+  .btn-gradient {
+    @apply !bg-gradient !bg-[length:300%_300%] hover:saturate-[1.2] shadow duration-100 !border-0 !border-transparent !bg-transparent animate-shimmer disabled:!bg-none disabled:!bg-gray-500/30  !text-white;
+  }
+  .btn {
+    @apply !capitalize;
+  }
+}
