@@ -12,6 +12,7 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
   const inputRef = useRef(null);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -20,7 +21,7 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
 
     setIsLoading(true);
     try {
-      await apiClient.post("/leadAdvanced", { name, email });
+      await apiClient.post("/comment", { name, email, comment });
 
       toast.success("Thanks for your interest! We'll be in touch soon.");
 
@@ -28,6 +29,7 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
       inputRef.current.blur();
       setEmail("");
       setName("");
+      setComment("");
       setIsDisabled(true);
     } catch (error) {
       console.log(error);
@@ -44,24 +46,15 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
       {isDisabled? null
       :
       <div>
-        <input
-            required
-            type="text"
-            value={name}
-            ref={inputRef}
-            autoComplete="name"
-            placeholder="Tom Cruise"
-            className="input input-bordered w-full text-black mb-4 placeholder:opacity-60"
-            onChange={(e) => setName(e.target.value)}
-        />
         <label
             for="Name"
-            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+            class="relative block rounded-md border border-gray-200 mb-4 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
             >
             <input
+                required
                 type="text"
                 id="Name"
-                class="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                class="peer w-full border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                 value={name}
                 ref={inputRef}
                 autoComplete="name"
@@ -70,22 +63,45 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
             />
 
             <span
-                class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white p-0.5 text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs"
+                class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-base-100 p-0.5 text-xs text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs"
             >
                 Name
             </span>
         </label>
 
-        <input
-            required
-            type="email"
-            value={email}
-            ref={inputRef}
-            autoComplete="email"
-            placeholder="tom@cruise.com"
-            className="input input-bordered w-full text-black placeholder:opacity-60"
-            onChange={(e) => setEmail(e.target.value)}
-        />
+        <label
+            for="email"
+            class="relative block rounded-md border border-gray-200 mb-4 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600"
+            >
+            <input
+                required
+                type="email"
+                id="email"
+                class="peer w-full start border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                value={email}
+                ref={inputRef}
+                autoComplete="name"
+                placeholder="tom@cruise.com"
+                onChange={(e) => setEmail(e.target.value)}
+            />
+
+            <span
+                class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-base-100 p-0.5 text-xs text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs"
+            >
+                Email
+            </span>
+        </label>
+
+        <div>
+            <textarea
+                id="Comments"
+                class="w-full rounded-md border-gray-200 align-top placeholder:text-gray-400 shadow-sm sm:text-sm"
+                rows="4"
+                placeholder="Enter any additional comments..."
+                value={comment}
+                onChange={(e) => setComment(e.target.value)}
+            ></textarea>
+        </div>
       </div> 
       
       }
@@ -94,7 +110,7 @@ const ButtonLeadWithComments = ({ extraStyle }) => {
         type="submit"
         disabled={isDisabled}
       >
-        {isDisabled? "We will be in touch." : "Contact us"}
+        {isDisabled? "I will be in touch." : "Contact me"}
         {isLoading ? (
           <span className="loading loading-spinner loading-xs"></span>
         ) : (

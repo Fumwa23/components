@@ -6,15 +6,15 @@ import ButtonLeadWithComments from "./ButtonLeadWithComments";
 
 const CTA = () => {
   return (
-    <section className="relative hero overflow-hidden min-h-screen" id="cta">
-      <Image
+    <section className="bg-base-100 text-black-content" id="cta">
+      {/* <Image
         alt=""
         src=""
         className="object-cover w-full"
         fill
-      />
+      /> */}
       <div className="relative hero-overlay bg-neutral bg-opacity-70"></div>
-      <div className="relative hero-content text-center text-neutral-content p-8">
+      <div className="relative hero-content text-center text-black-content p-8">
         <div className="flex flex-col items-center max-w-xl p-8 md:p-0">
           <h2 className="font-bold text-3xl md:text-5xl tracking-tight mb-8 md:mb-12">
             Leave a comment?
