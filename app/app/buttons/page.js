@@ -18,10 +18,10 @@ export default function CreatePage() {
 				<div className='flex flex-col justify-start p-4 h-full max-w-3xl w-full'> {/* keeps content centered */}
 				<div className='flex justify-between align-center mb-4'>
 
-					<div className='text-3xl flex flex-col justify-center'>Research</div>
+					<div className='text-3xl flex flex-col justify-center'>Buttons</div>
 				</div>
 					<div className='mb-4'>
-						Your organisational criteria is applied to every set of research, and can be edited <a href="/app/research/criteria" className='underline pointer'>here</a>.
+						A collection of button components.
 					</div>
 					
 				</div>
