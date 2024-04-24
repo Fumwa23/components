@@ -4,7 +4,7 @@ const App = () => {
 
 	// redirect to /videos
 	return (
-		redirect("/app/research")
+		redirect("/app/buttons")
 	)
 }
 

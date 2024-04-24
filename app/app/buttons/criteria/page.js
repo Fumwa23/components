@@ -3,7 +3,6 @@ import React, { use, useEffect, useState } from 'react';
 import apiClient from '@/utils/generic/api';
 // import Button from '@/components/hyperUI/Button';
 import TextInput from '@/components/hyperUI/TextInput';
-import framework from '@/data/videoFrameworks/5-minute-perfect-webinar';
 import Stepper from '@/components/hyperUI/Stepper';
 import { useRouter } from "next/navigation";
 import { set } from 'mongoose';
@@ -34,7 +33,7 @@ export default function CreatePage() {
 			setOverviewConfig({...overviewConfig, ...organisation.overview})
 		}
 
-		asyncFunc()
+		//asyncFunc()
 	}, [])
 
 	const save = async () => {
